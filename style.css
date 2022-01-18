@@ -2,6 +2,7 @@
   /* Colors */
   --soft-blue: hsl(215, 51%, 70%);
   --cyan: hsl(178, 100%, 50%);
+  --cyan-bg: hsla(178, 100%, 50%, 0.5);
 
   --dark-blue-main-bg: hsl(217, 54%, 11%);
   --dark-blue-card-bg: hsl(216, 50%, 16%);
@@ -44,12 +45,31 @@ main {
   width: 100%;
   height: 300px;
   border-radius: 8px;
+  position: relative;
   overflow: hidden;
 }
 .main__card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.main__card__image__view {
+  position: absolute;
+  top: 0;
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  background-image: url("images/icon-view.svg");
+  background-color: var(--cyan-bg);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.main__card__image__view:hover {
+  opacity: 1;
 }
 .main__card__content {
   padding: 15px 0;
@@ -59,6 +79,10 @@ main {
   color: var(--white);
   margin-bottom: 10px;
   font-size: 2rem;
+  cursor: pointer;
+}
+.main__card__content__title:hover {
+  color: var(--cyan);
 }
 .main__card__content__info {
   color: var(--soft-blue);
@@ -101,4 +125,16 @@ main {
 }
 .main__card__autor p > span {
   color: white;
+  cursor: pointer;
+}
+.main__card__autor p > span:hover {
+  color: var(--cyan);
+}
+
+/* Querys */
+
+@media (min-width: 375px) {
+  .main__card {
+    width: 315px;
+  }
 }
